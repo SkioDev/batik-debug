@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 
 import javax.imageio.ImageIO;
@@ -33,8 +34,8 @@ public class App
         graphics.setSVGCanvasSize(new Dimension(800, 600));
         
 //      Load Image
-        File imgFile = new File("tmp/test_jpeg.jpg");
-        BufferedImage img = ImageIO.read(imgFile);
+        InputStream imgStream = App.class.getClassLoader().getResourceAsStream("test_jpeg.jpg");
+        BufferedImage img = ImageIO.read(imgStream);
         
 //      Create AffineTransform
         AffineTransform at = new AffineTransform(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
